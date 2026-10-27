@@ -62,3 +62,43 @@ def submit_nilai():
     entry_fis.delete(0, tk.END)
     entry_ing.delete(0, tk.END)
 
+
+root = tk.Tk()
+root.title("Aplikasi Nilai Siswa")
+root.geometry("400x350")
+
+label_judul = tk.Label(
+    root,
+    text="Aplikasi Nilai Siswa",
+    font=("Arial", 18, "bold"),
+)
+label_judul.pack(pady=10)
+
+def buat_input(teks):
+    frame = tk.Frame(root)
+    frame.pack(pady=3)
+    tk.Label(frame, text=teks, width=20, anchor="w").pack(side="left")
+    entry = tk.Entry(frame, width=15)
+    entry.pack(side="left")
+    return entry
+
+entry_nama = buat_input("Nama Siswa")
+entry_bio  = buat_input("Biologi")
+entry_fis  = buat_input("Fisika")
+entry_ing  = buat_input("Inggris")
+
+# Tombol + hover
+def on_enter(e):
+    btn_submit["bg"] = "#50fa7b"
+    btn_submit["fg"] = "black"
+
+def on_leave(e):
+    btn_submit["bg"] = "SystemButtonFace"
+    btn_submit["fg"] = "black"
+
+btn_submit = tk.Button(root, text="Submit Nilai", command=submit_nilai)
+btn_submit.pack(pady=10)
+btn_submit.bind("<Enter>", on_enter)
+btn_submit.bind("<Leave>", on_leave)
+
+root.mainloop()
