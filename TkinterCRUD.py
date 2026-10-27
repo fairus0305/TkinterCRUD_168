@@ -7,18 +7,18 @@ def create_db():
     cursor = conn.cursor()
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS nilai_siswa (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nama_siswa TEXT NOT NULL,
-        biologi INTEGER NOT NULL,
-        fisika INTEGER NOT NULL,
-        inggris INTEGER NOT NULL,
-        prediksi_fakultas TEXT NOT NULL
-    )
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nama_siswa TEXT NOT NULL,
+            biologi INTEGER NOT NULL,
+            fisika INTEGER NOT NULL,
+            inggris INTEGER NOT NULL,
+            prediksi_fakultas TEXT NOT NULL
+        )
     """)
     conn.commit()
     conn.close()
 
-    create_db()
+create_db()
 
 def prediksi_fakultas(biologi, fisika, inggris):
     if biologi > fisika and biologi > inggris:
@@ -39,7 +39,7 @@ def submit_nilai():
     except ValueError:
         messagebox.showerror("Error", "Nilai harus berupa angka!")
         return
-    
+
     if not nama:
         messagebox.showerror("Error", "Nama siswa tidak boleh kosong!")
         return
