@@ -17,3 +17,16 @@ def create_db():
     """)
     conn.commit()
     conn.close()
+
+    create_db()
+
+def prediksi_fakultas(biologi, fisika, inggris):
+    if biologi > fisika and biologi > inggris:
+        return "Kedokteran"
+    elif fisika > biologi and fisika > inggris:
+        return "Teknik"
+    elif inggris > biologi and inggris > fisika:
+        return "Bahasa"
+    else:
+        return "Tidak Dapat Ditentukan"
+
