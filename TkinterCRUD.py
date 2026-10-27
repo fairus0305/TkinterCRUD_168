@@ -36,4 +36,6 @@ def submit_nilai():
         bio = int(entry_bio.get())
         fis = int(entry_fis.get())
         ing = int(entry_ing.get())
-   
+    except ValueError:
+        messagebox.showerror("Error", "Nilai harus berupa angka!")
+        return
