@@ -39,3 +39,11 @@ def submit_nilai():
     except ValueError:
         messagebox.showerror("Error", "Nilai harus berupa angka!")
         return
+    
+    if not nama:
+        messagebox.showerror("Error", "Nama siswa tidak boleh kosong!")
+        return
+
+    hasil_prediksi = prediksi_fakultas(bio, fis, ing)
+
+    
